@@ -29,7 +29,31 @@ let's look:
 we can choose 2 or 5 in any order
 
 so the solution is 
-{[4,2,5],[4,5,2]}
+[[4,2,5],[4,5,2]]
+
+
+Now there is another situation that exists and needed to deal with, suppose we have the next tree:
+
+    4
+   / \
+  2   5 
+       \
+        6
+
+how we can build it?
+well we have to start with 4 so let's delete this
+
+  2   5 
+       \
+        6
+what ways can we build this tree:
+Well we can start the left and then move to the right so: [[4,2,5,6]]
+Well we can start the right and then move to left so: [[4,5,6,2]]
+But we can also mix it up a bit... we can start with 5, move to 2 and return for 6 and get [[4,5,2,6]]
+this is a problem that we also have take into account.
+the problem is the fact that sometimes we can mix the ways we build the right and left parts of the tree.
+but the build will always for them, meaning that 5 will always come before 6. 
+
 
 So now, we start understand the way to solve this
 - On a given Node, create a list that contains only this Node as a possible solution call "selfSolution"(in a case the he have no Children)
@@ -53,6 +77,6 @@ for every rightSolutions and leftSolutions when they are mix together.
 for every leftSolutions and rightSolutions when they are mix together.
 - add newlistMixLeftRight to "lists" 
 
-Now we create a for a given node all the ways to build the tree with him on it, so we can return "lists" as all the way to build this 
+Now we create for a given node all the ways to build the tree with him on it, so we can return "lists" as all the way to build this 
 tree.
 
