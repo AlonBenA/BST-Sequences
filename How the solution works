@@ -1,0 +1,58 @@
+BST Sequences: A binary search tree was created by traversing through an array from left to right and inserting each element. 
+Given a binary search tree with distinct elements, print all possible arrays that could have led to this tree.
+
+Solution.
+
+Let's start with an example of the base case:
+the tree:
+
+     4
+
+As we can see there is only 1 way to create this tree(with a single node), so the solution is
+[4]
+
+let's move on to little more complex situation
+
+    4
+   / \
+  2   5 
+
+Here we can see that we have to insert the node with the number 4 first. 
+This node is always going to be the first element in each of the possible solution.
+So to create the list we have to start with 4, and then the rest of the possibilities.
+what possibilities do we have?
+let's look:
+
+   / \
+  2   5 
+
+we can choose 2 or 5 in any order
+
+so the solution is 
+{[4,2,5],[4,5,2]}
+
+So now, we start understand the way to solve this
+- On a given Node, create a list that contains only this Node as a possible solution call "selfSolution"(in a case the he have no Children)
+- Get all the solutions from the right part of the tree. let's call them "rightSolutions"
+(Which is a list of lists of ways to build the right part of the tree)
+- Get all the solutions from the left part of the tree. let's call them "leftSolutions" 
+(Which is a list of lists of ways to build the left part of the tree)
+- create a new list of lists, let's call it "lists".
+- Combine the self,right and left solutions to create the "lists" which contains all the ways to build this tree, how to Combine?
+In the following way:
+- Create newlistRightLeft that the combine of selfSolution, one of the rightSolutions and then one of the leftSolutions 
+for every rightSolutions and leftSolutions.
+- add newlistRightLeft to "lists"
+- Create newlistLeftRight that the combine of selfSolution, one of the leftSolutions and then one of the rightSolutions 
+for every leftSolutions and rightSolutions.
+- add newlistLeftRight to "lists"
+- Create newlistMixRightLeft that is the combine of selfSolution, one of the rightSolutions and then one of the leftSolutions  
+for every rightSolutions and leftSolutions when they are mix together.
+-add newlistMixRightLeft to "lists"
+- Create newlistMixLeftRight that is the combine of selfSolution, one of the leftSolutions and then one of the rightSolutions  
+for every leftSolutions and rightSolutions when they are mix together.
+- add newlistMixLeftRight to "lists" 
+
+now we create a for a given node all the ways to build the tree with him on it, so we can return "lists" as all the way to build this 
+tree.
+
