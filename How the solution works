@@ -53,6 +53,6 @@ for every rightSolutions and leftSolutions when they are mix together.
 for every leftSolutions and rightSolutions when they are mix together.
 - add newlistMixLeftRight to "lists" 
 
-now we create a for a given node all the ways to build the tree with him on it, so we can return "lists" as all the way to build this 
+Now we create a for a given node all the ways to build the tree with him on it, so we can return "lists" as all the way to build this 
 tree.
 
